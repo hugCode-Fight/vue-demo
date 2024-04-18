@@ -9,12 +9,12 @@
   <script lang="ts">
   import { defineComponent, inject, onMounted } from 'vue'
   import { useRoute } from 'vue-router'
-  import { useStore } from '@/store/articles'
+  import { useArticlesStore } from '@/store/articles'
   
   export default defineComponent({
     setup() {
       const route = useRoute()
-      const articleStore = useStore()
+      const articleStore = useArticlesStore()
   
       onMounted(async () => {
         const articleId = Number(route.params.id)

@@ -17,7 +17,7 @@
   
   <script lang="ts">
   import { defineComponent, ref } from 'vue'
-  import { useStore } from '@/store/articles' // 假设这是一个Pinia store，管理文章列表状态
+  import { useArticlesStore } from '@/store/articles' // 假设这是一个Pinia store，管理文章列表状态
   import Pagination from '@/components/Pagination.vue' // 假设这是一个分页组件
   
   export default defineComponent({
@@ -25,7 +25,7 @@
       Pagination,
     },
     setup() {
-      const store = useStore()
+      const store = useArticlesStore()
       const currentPage = ref(1)
   
       // 获取文章列表数据

@@ -11,11 +11,11 @@
   
   <script lang="ts">
   import { defineComponent, ref } from 'vue'
-  import { useStore } from '@/store/tags' // 假设这是一个Pinia store，管理标签信息
+  import { useTagsStore } from '@/store/tags' // 假设这是一个Pinia store，管理标签信息
   
   export default defineComponent({
     setup() {
-      const tagStore = useStore()
+      const tagStore = useTagsStore()
   
       return {
         tags: tagStore.tagsList,

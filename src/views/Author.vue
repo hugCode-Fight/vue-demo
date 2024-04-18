@@ -9,11 +9,11 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue'
-  import { useStore } from '@/store/author' // 假设这是一个Pinia store，管理作者信息
+  import { useAuthorStore } from '@/store/author' // 假设这是一个Pinia store，管理作者信息
   
   export default defineComponent({
     setup() {
-      const authorStore = useStore()
+      const authorStore = useAuthorStore()
   
       return {
         author: authorStore.authorInfo,
