@@ -29,15 +29,24 @@ export const useArticlesStore = defineStore('articles', {
     articleDetail: undefined,
   }),
   actions: {
-    async fetchArticles(page: number) {
-      const response = await axios.get('/api/articles', { params: { page } })
-      this.articles = response.data.items
-      this.totalPages = response.data.totalPages
+    async fetchArticles(page: number,pageSize:number) {
+
+      const response = await axios.get('/api/articles', { params: { page, pageSize } })
+      //打印response的值
+      console.log("response的值:",response);
+      this.articles = response.data.data.items
+      console.log("response.data.data.items的值:",response.data.data.items[0])
+
+      this.totalPages = response.data.data.totalPages
       this.currentPage = page
+      console.log("this.articles的值:",this.articles)
+      console.log("this.totalPage的值:",this.totalPages)
+      console.log("this.currentPage的值:",this.currentPage)
     },
     async fetchArticleDetail(id: number) {
       const response = await axios.get(`/api/articles/${id}`)
-      this.articleDetail = response.data
+
+      this.articleDetail = response.data.data
     },
   },
 })
